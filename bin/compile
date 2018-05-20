@@ -7,7 +7,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-BIN_PATH="/usr/local/bin"
+BIN_PATH="$BUILD_DIR/bin"
 LIB_PATH="$BUILD_DIR/vendor/wkhtmltox/lib"
 TMP_PATH="$BUILD_DIR/tmp"
 mkdir -p $CACHE_DIR $BIN_PATH $LIB_PATH $TMP_PATH
@@ -47,6 +47,11 @@ echo "-----> Moving libs to the right place"
 mv $WKHTMLTOPDF_LIBS/* $LIB_PATH/
 
 echo "-----> Adding binaries to PATH"
+echo "BIN PATH"
+echo $BIN_PATH
+echo "LIB_PATH"
+echo $LIB_PATH
+
 export PATH=$PATH:$BIN_PATH:$LIB_PATH
 
 echo "-----> Cleaning up"
